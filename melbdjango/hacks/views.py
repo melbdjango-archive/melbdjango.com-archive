@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.db import transaction
 from django.db.utils import IntegrityError
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.decorators.http import require_POST
 
 from .models import Idea, Vote
 from .forms import IdeaForm, CommentForm
@@ -40,6 +41,7 @@ def idea_detail(request, idea_id):
         'object': idea,
     })
 
+@require_POST
 def idea_vote(request, idea_id, direction):
     '''Cast a vote'''
     idea = get_object_or_404(Idea, pk=idea_id)
