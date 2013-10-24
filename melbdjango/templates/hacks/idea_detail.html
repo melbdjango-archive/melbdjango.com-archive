@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1> {{ idea.title }} ({{ idea.total_votes }})</h1>
+
+<div>
+    <p>{{ idea.description }}</p>
+</div>
+
+<h2> Comments </h2>
+<ol>
+{% for comment in idea.comments_set.all %}
+    <li>
+        <h3> {{ comment.user }} </h3>
+        <time> {{ comment.created }} </time>
+        <p> {{ comment.comment }} </p>
+    </li>
+{% endfor %}
+</ol>
+{% if user.is_authenticated %}
+<form method="POST" action="{{ idea.get_comment_url }}">
+{{ form }}
+<button type="submit">Comment</button>
+</form>
+{% endif %}
+
+{% endblock %}
