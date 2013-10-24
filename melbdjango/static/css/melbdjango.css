@@ -1,0 +1,38 @@
+.page-header header h1 {
+    text-align: center;
+    background:url(/static/images/melbdjango-diecut-logo.png) center center no-repeat;
+    text-indent:-10000px;
+    height:200px;
+    width:320px;
+    margin: 0 auto;
+}
+
+.post {
+    margin: 50px auto;
+    width: 550px;
+    border-bottom: 2px solid #dedede;
+    color: #232332;
+}
+
+.post h2 {
+    font: 400 36px/1.3 'Bree Serif', Georgia, serif;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.post p, .post a {
+    font: 300 14px/1.6 'Ledger', Verdana, Helvetica, sans-serif;
+}
+
+.post p img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.post .byline {
+    font: 300 11px/1.6 'Ledger', Verdana, Helvetica, sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #888;
+}

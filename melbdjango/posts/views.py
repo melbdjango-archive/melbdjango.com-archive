@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.views.generic import ListView
+from .models import Post
 
-# Create your views here.
+class PostsView(ListView):
+    template_name = 'posts.html'
+    model = Post
+
+    def get_queryset(self):
+        return self.model.objects.published()

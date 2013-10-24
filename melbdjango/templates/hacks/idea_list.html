@@ -22,8 +22,12 @@
             <td> {{ idea.total_votes }} </td>
             {% if user.is_authenticated %}
             <td>
-                <form method="POST" action="{{ idea.get_voteup_url }}"><button type="submit">Up!</button></form>
-                <form method="POST" action="{{ idea.get_votedown_url }}"><button type="submit">Down!</button></form>
+                <form method="POST" action="{{ idea.get_voteup_url }}">
+                    {% csrf_token %}<button type="submit">Up!</button>
+                </form>
+                <form method="POST" action="{{ idea.get_votedown_url }}">{% csrf_token %}
+                    <button type="submit">Down!</button>
+                </form>
             </tr>
             {% endif %}
         </tr>
