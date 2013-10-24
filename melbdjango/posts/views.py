@@ -1,5 +1,5 @@
 from django.views.generic import ListView
-from posts.models import Post
+from .models import Post
 
 class PostsView(ListView):
     template_name = 'posts.html'
