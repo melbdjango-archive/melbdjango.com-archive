@@ -5,7 +5,10 @@
         <meta name="viewport" content="width=device-width, minimum-scale=1.0">
         <title>{% block title %}{% endblock %} :: MelbDjango</title>
 
-        <link href="{{ STATIC_URL }}css/style.min.css" rel="stylesheet" type="text/css">
+        <link href="{{ STATIC_URL }}css/normalise.css" rel="stylesheet" type="text/css">
+        <link href="//fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet" type="text/css">
+        <link href="//fonts.googleapis.com/css?family=Ledger" rel="stylesheet" type="text/css">
+        <link href="{{ STATIC_URL }}css/melbdjango.css" rel="stylesheet" type="text/css">
 
         {% block extra_head %}{% endblock %}
     </head>
@@ -14,16 +17,8 @@
         <div class="page-container">
 
             <section class="page-header">
-                <header class="page-header__header">
-                    <h1 class="page-header__logo">MelbDjango</h1>
-                    <nav class="page-header__nav">
-                    <ul>
-                        {% comment %} replace with named urls! {% endcomment %}
-                        <li><a href="/events/">Events</a></li>
-                        <li><a href="/posts/">Posts</a></li>
-                        <li><a href="/hacks/">Hacks</a></li>
-                    </ul>
-                </nav>
+                <header>
+                    <h1>MelbDjango</h1>
                 </header>
             </section>
 
@@ -36,6 +31,5 @@
             </section>
 
         </div>
-
     </body>
 </html>
