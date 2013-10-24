@@ -10,6 +10,22 @@ class Idea(models.Model):
 
     created = models.DateTimeField(default=datetime.now)
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('idea-detail', (), {'idea_id': self.pk})
+
+    @models.permalink
+    def get_voteup_url(self):
+        return ('idea-vote-up', (), {'idea_id': self.pk})
+
+    @models.permalink
+    def get_votedown_url(self):
+        return ('idea-vote-down', (), {'idea_id': self.pk})
+
+    @models.permalink
+    def get_comment_url(self):
+        return ('idea-comment', (), {'idea_id': self.pk})
+
 class Vote(models.Model):
     idea = models.ForeignKey('Idea')
     user = models.ForeignKey('auth.User')

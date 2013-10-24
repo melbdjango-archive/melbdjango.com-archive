@@ -40,7 +40,7 @@ def idea_detail(request, idea_id):
         'object': idea,
     })
 
-def vote(request, idea_id, direction):
+def idea_vote(request, idea_id, direction):
     '''Cast a vote'''
     idea = get_object_or_404(Idea, pk=idea_id)
 
@@ -56,7 +56,7 @@ def vote(request, idea_id, direction):
 
     return redirect(idea)
 
-def comment(request, idea_id):
+def idea_comment(request, idea_id):
     '''Post a comment on an Idea'''
     idea = get_object_or_404(Idea, pk=idea_id)
 
