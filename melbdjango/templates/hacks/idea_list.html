@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1> Ideas </h1>
+
+<table>
+    <thead>
+        <tr>
+            <th> Idea </th>
+            <th> Posted </th>
+            <th> Votes </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for idea in object_list %}
+        <tr>
+            <td> {{ idea.title }} </td>
+            <td> {{ idea.created }} </td>
+            <td> {{ idea.total_votes }} </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
