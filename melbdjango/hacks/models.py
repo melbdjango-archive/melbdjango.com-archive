@@ -26,6 +26,9 @@ class Idea(models.Model):
     def get_comment_url(self):
         return ('idea-comment', (), {'idea_id': self.pk})
 
+    def total_votes(self):
+        return self.vote_set.aggregate('total' = models.Sum('value'))['total']
+
 class Vote(models.Model):
     idea = models.ForeignKey('Idea')
     user = models.ForeignKey('auth.User')
