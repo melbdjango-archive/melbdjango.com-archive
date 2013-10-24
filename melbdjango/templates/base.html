@@ -1,10 +1,41 @@
 <!doctype HTML>
 <html>
     <head>
-        <title>{% block title %}{% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+        <title>{% block title %}{% endblock %} :: MelbDjango</title>
+
+        <link href="{{ STATIC_URL }}css/style.min.css" rel="stylesheet" type="text/css">
+
         {% block extra_head %}{% endblock %}
     </head>
     <body>
-    {% block content %}{% endblock %}
+
+        <div class="page-container">
+
+            <section class="page-header">
+                <header class="page-header__header">
+                    <h1 class="page-header__logo">MelbDjango</h1>
+                    <nav class="page-header__nav">
+                    <ul>
+                        {% comment %} replace with named urls! {% endcomment %}
+                        <li><a href="/events/">Events</a></li>
+                        <li><a href="/posts/">Posts</a></li>
+                        <li><a href="/hacks/">Hacks</a></li>
+                    </ul>
+                </nav>
+                </header>
+            </section>
+
+            <section class="page-body">
+                {% block content %}{% endblock %}
+            </section>
+
+            <section class="page-footer">
+                <p>MelbDjango 2013</p>
+            </section>
+
+        </div>
+
     </body>
 </html>
