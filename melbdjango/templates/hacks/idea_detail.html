@@ -20,7 +20,9 @@
 </ol>
 {% if user.is_authenticated %}
 <form method="POST" action="{{ idea.get_comment_url }}">
-{{ form }}
+<table>
+    {{ form.as_table }}
+</table>
 <button type="submit">Comment</button>
 </form>
 {% endif %}
