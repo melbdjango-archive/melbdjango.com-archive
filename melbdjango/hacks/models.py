@@ -27,7 +27,7 @@ class Idea(models.Model):
         return ('idea-comment', (), {'idea_id': self.pk})
 
     def total_votes(self):
-        return self.vote_set.aggregate('total' = models.Sum('value'))['total']
+        return self.vote_set.aggregate(total = models.Sum('value'))['total']
 
 class Vote(models.Model):
     idea = models.ForeignKey('Idea')
