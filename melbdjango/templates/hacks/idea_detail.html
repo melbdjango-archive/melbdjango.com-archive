@@ -19,7 +19,7 @@
 {% endfor %}
 </ol>
 {% if user.is_authenticated %}
-<form method="POST" action="{{ idea.get_comment_url }}">
+<form method="POST" action="{{ idea.get_comment_url }}">{% csrf_token %}
 <table>
     {{ form.as_table }}
 </table>
