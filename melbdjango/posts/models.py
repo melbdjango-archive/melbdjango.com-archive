@@ -33,12 +33,15 @@ class Post(models.Model):
 
     status = models.IntegerField(choices=POST_STATUS_CHOICES, default=POST_DRAFT)
 
-    # meta_title
-    # meta_description
-
-    # tags
-
     objects = PostManager()
+
+    class Meta:
+        ordering = ['-created',]
 
     def __unicode__(self):
         return self.title
+
+    def author_str(self):
+        if self.author.first_name:
+            return self.author.first_name
+        return self.author.username

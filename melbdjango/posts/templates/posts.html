@@ -5,8 +5,10 @@
     {% for post in object_list %}
         <div class="post">
             <h2>{{ post.title }}</h2>
-            {{ post.content|markdown }}
-            {{ post.created|date:"SHORT_DATE_FORMAT" }}
+            <div class="byline">{{ post.author_str }} - {{ post.created|timesince }} ago</div>
+            <div class="content">
+                {{ post.content|markdown }}
+            </div>
         </div>
     {% endfor %}
 {% endblock%}
