@@ -2,9 +2,13 @@
 <html>
     <head>
         <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
         {% block extra_head %}{% endblock %}
     </head>
     <body>
+    <header>
+        <img src="http://static.tumblr.com/84c12aec97e1f746af456cb272ff2ead/yo7wuqs/or0mtrhki/tumblr_static_logo.jpg">
+    </header>
     {% block content %}{% endblock %}
     </body>
 </html>
