@@ -1,2 +1,4 @@
 #Django==1.6c1
 https://www.djangoproject.com/download/1.6c1/tarball/
+
+django-extensions==1.2.5
