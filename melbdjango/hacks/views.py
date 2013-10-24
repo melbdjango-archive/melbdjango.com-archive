@@ -48,7 +48,7 @@ def idea_vote(request, idea_id, direction):
 
     with transaction.commit_manually():
         try:
-            vote = Vote.objects.create(user=request.user, idea=idea, direction=direction)
+            vote = Vote.objects.create(user=request.user, idea=idea, value=direction)
         except IntegrityError:
             messages.warning(request, 'You can only vote once on each idea.')
             transaction.rollback()
