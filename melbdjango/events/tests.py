@@ -27,7 +27,8 @@ class EventTests(TestCase):
 
     def test_create_event(self):
         event = Event(start_datetime=datetime.datetime(2013, 10, 24,
-                                                       19, 0))
+                                                       19, 0),
+                      title="A title")
 
         event.location_name = "Common Code"
         event.content = """This is some content"""
