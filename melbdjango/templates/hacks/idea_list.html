@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1> Ideas </h1>
+
+<table>
+    <thead>
+        <tr>
+            <th> Idea </th>
+            <th> Posted </th>
+            <th> Votes </th>
+            {% if user.is_authenticated %}
+            <th> Vote! </th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for idea in object_list %}
+        <tr>
+            <td> <a href="{{ idea.get_absolute_url }}">{{ idea.title }}</a> </td>
+            <td> {{ idea.created }} </td>
+            <td> {{ idea.total_votes }} </td>
+            {% if user.is_authenticated %}
+            <td>
+                <form method="POST" action="{{ idea.get_voteup_url }}"><button type="submit">Up!</button></form>
+                <form method="POST" action="{{ idea.get_votedown_url }}"><button type="submit">Down!</button></form>
+            </tr>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1> Create new Idea! </h1>
+
+<form method="POST" action="">
+<table>
+    {{ form.as_table }}
+</table>
+<button type="submit">Create!</button>
+</form>
+
+{% endblock %}
