@@ -12,7 +12,7 @@ from .forms import IdeaForm, CommentForm
 def idea_list(request):
     '''List all the Ideas!'''
     return render(request, 'hacks/idea_list.html', {
-        'object_list': Idea.objects.all(),
+        'object_list': Idea.objects.with_total_votes().order_by('total_votes'),
     })
 
 @login_required

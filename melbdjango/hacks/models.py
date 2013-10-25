@@ -1,6 +1,14 @@
 from django.db import models
+from django.utils.functional import cached_property
 
 from datetime import datetime
+
+class IdeaManager(models.Manager):
+
+    def with_total_votes(self):
+        return self.get_query_set().annotate(
+            total_votes=models.Sum('vote__value')
+        )
 
 class Idea(models.Model):
     title = models.CharField(max_length=2048)
@@ -9,6 +17,8 @@ class Idea(models.Model):
     owner = models.ForeignKey('auth.User')
 
     created = models.DateTimeField(default=datetime.now)
+
+    objects = IdeaManager()
 
     @models.permalink
     def get_absolute_url(self):
@@ -26,6 +36,7 @@ class Idea(models.Model):
     def get_comment_url(self):
         return ('idea-comment', (), {'idea_id': self.pk})
 
+    @cached_property
     def total_votes(self):
         return self.vote_set.aggregate(total = models.Sum('value'))['total']
 
