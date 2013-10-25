@@ -6,4 +6,4 @@ local_settings.py
 .*.sw?
 /python_env
 
-/melbdjango/static/css/.sass-cache/
+.sass-cache
