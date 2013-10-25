@@ -1,10 +1,20 @@
-.page-header header h1 {
-    text-align: center;
-    background:url(/static/images/melbdjango-diecut-logo.png) center center no-repeat;
-    text-indent:-10000px;
-    height:200px;
-    width:320px;
-    margin: 0 auto;
+
+
+* {
+  font-family: Helvetica;
+}
+
+
+body {
+  background-color: #DFFFBF;
+}
+
+.page-header__logo {
+  background: url(/static/images/melbdjango-diecut-logo.png) 0 0 no-repeat;
+  text-indent: -10000px;
+  height: 200px;
+  width: 320px;
+  display: inline-block;
 }
 
 .post {
