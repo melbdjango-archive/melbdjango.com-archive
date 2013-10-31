@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
 
 from django_extensions.db.models import TimeStampedModel
 
@@ -14,7 +13,7 @@ class Event(TimeStampedModel):
 
     title = models.CharField(max_length=512)
     location_name = models.CharField(max_length=512)
-    author = models.ForeignKey(User)
+    author = models.ForeignKey('auth.User')
     content = models.TextField()
 
     def __unicode__(self):
