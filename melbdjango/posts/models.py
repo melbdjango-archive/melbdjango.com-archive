@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
 
 POST_DRAFT = 1
 POST_REVIEW = 2
@@ -20,7 +19,7 @@ class PostManager(models.Manager):
 
 
 class Post(models.Model):
-    author = models.ForeignKey(User)
+    author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     slug = models.SlugField()
 
