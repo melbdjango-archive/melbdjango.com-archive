@@ -15,7 +15,7 @@ POST_STATUS_CHOICES = (
 class PostManager(models.Manager):
     def published(self):
         # XXX: Take in to account Post.published
-        return self.get_query_set().filter(status__gte=POST_PUBLISHED)
+        return self.get_queryset().filter(status__gte=POST_PUBLISHED)
 
 
 class Post(models.Model):
