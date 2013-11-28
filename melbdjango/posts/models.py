@@ -1,4 +1,7 @@
 from django.db import models
+from django.db.models import Q
+
+from datetime import datetime
 
 POST_DRAFT = 1
 POST_REVIEW = 2
@@ -14,8 +17,10 @@ POST_STATUS_CHOICES = (
 
 class PostManager(models.Manager):
     def published(self):
-        # XXX: Take in to account Post.published
-        return self.get_queryset().filter(status__gte=POST_PUBLISHED)
+        return self.get_queryset().filter(
+            Q(published=None) | Q(published__lte=datetime.now()),
+            status__gte=POST_PUBLISHED,
+        )
 
 
 class Post(models.Model):
