@@ -46,15 +46,13 @@ def idea_vote(request, idea_id, direction):
     '''Cast a vote'''
     idea = get_object_or_404(Idea, pk=idea_id)
 
-    with transaction.commit_manually():
-        try:
+    try:
+        with transaction.atomic():
             vote = Vote.objects.create(user=request.user, idea=idea, value=direction)
-        except IntegrityError:
-            messages.warning(request, 'You can only vote once on each idea.')
-            transaction.rollback()
-        else:
-            messages.success(request, 'You %s voted %s!' % (vote.get_value_display(), idea))
-            transaction.commit()
+    except IntegrityError:
+        messages.warning(request, 'You can only vote once on each idea.')
+    else:
+        messages.success(request, 'You %s voted %s!' % (vote.get_value_display(), idea))
 
     return redirect(idea)
 
