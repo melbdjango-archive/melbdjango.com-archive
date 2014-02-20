@@ -10,7 +10,7 @@ Getting Started
 
 Clone this repo:
 
-    git clone git@github.com:danni/melbdjango.com.git
+    git clone git@github.com:MelbDjango/melbdjango.com.git
 
 Set up virtualenv:
 
