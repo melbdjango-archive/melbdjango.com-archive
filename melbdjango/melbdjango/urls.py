@@ -6,6 +6,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'melbdjango.views.home', name='home'),
+    (r'^accounts/', include('allauth.urls')),
     url(r'^posts/', include('posts.urls')),
     url(r'^hacks/', include('hacks.urls')),
     

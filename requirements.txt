@@ -5,3 +5,6 @@ South==0.8.2
 django-extensions==1.2.5
 
 markdown2
+
+django-allauth==0.15.0
+
